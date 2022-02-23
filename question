@@ -121,3 +121,37 @@ public class JavaPredicateEx {
         nums.stream().filter(btf).forEach(System.out::println);
     }
 }
+
+==================================================================================================================
+
+
+The map() function is a method in the Stream class that represents a functional programming concept. In simple words, 
+the map() is used to transform one object into another by applying a function.
+
+All you need is a mapping function to convert one object to the other. Then, the map() function will do the transformation for you.
+It is also an intermediate Stream operation which means you can call other Stream methods, 
+like a filter, or collect on this to create a chain of transformations.
+
+Now, coming to the filter method, as its name suggests, it filters elements based upon a condition you gave it. For example, if 
+your list contains numbers and you only want numbers, then you can use the filter method to only select a number that is fully divisible by two.
+
+The filter method essentially selects elements based upon a condition you provide. That’s the reason that the filter (Predicate condition)
+accepts a Predicate object, which provides a function that is applied to a condition.
+If the condition evaluates true, then the object is selected. Otherwise, it will be ignored.
+
+The filter() the method is also lazy which means that it will not be evaluated until you call a reduction method,
+like collect, and it will stop as soon as it reaches the target.
+
+
+
+		List<String> numbers = Arrays.asList("1", "2", "3", "4", "5", "6");
+    System.out.println("original list: " + numbers);
+    List<Integer> morethan9 = numbers.stream()
+                                .map(s -> Integer.valueOf(s)*Integer.valueOf(s))
+                                .filter(number->number>9)
+                                .collect(Collectors.toList());
+  
+    System.out.println("processed list,  " + morethan9);
+    
+    ==================================================================================================================
+    
