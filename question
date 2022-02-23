@@ -1,0 +1,28 @@
+TreeSet
+
+Association aggreagation composition
+
+interface of predicate
+
+JVM
+
+Garbase collection
+
+how to monitor jvm ,findout deadlock and memory leak
+
+given array, filter using stream collect data to map
+
+thread
+
+hashmap weakhashmap
+override hascode and equals
+
+Autowire 
+
+circular dependency
+
+Proxy pattern in spring
+
+Bean A should be create befor Bean B
+
+Observer design pattern
