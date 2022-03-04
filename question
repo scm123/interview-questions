@@ -197,4 +197,48 @@ tinker with it regardless of whether it's in the Car.
 ==================================================================================================================
 
 
+
+BEGIN TRANSACTION;
+
+/* Create a table called NAMES */
+CREATE TABLE NAMES(firstname varchar2(20), lastname varchar2(20));
+
+/* Create few records in this table */
+INSERT INTO NAMES VALUES('Tom', 'Tom');
+INSERT INTO NAMES VALUES('Tom', 'Tom');
+INSERT INTO NAMES VALUES('Tom', 'Tom');
+INSERT INTO NAMES VALUES('Jim', 'Beam');
+INSERT INTO NAMES VALUES('Tom', 'Tom');
+COMMIT;
+
+/* Display all the records from the table */
+--SELECT * FROM NAMES;
+
+--SELECT rowid,firstname,lastname FROM NAMES;
+
+/**
+ delete from NAMES where 
+ firstname||' '||lastname 
+ in (
+ select firstname||' '||lastname from NAMES t
+  group by firstname ,lastname
+  having count(firstname||' '||lastname)>1
+  )
+  and rowid<>1
+  ;
+  **/
+  
+  DELETE FROM NAMES WHERE ROWID NOT IN (SELECT MAX(ROWID) FROM 
+NAMES GROUP BY FIRSTNAME,LASTNAME);
+
+ --select firstname ,lastname  from NAMES t
+ -- group by firstname ,lastname
+ -- having count(firstname||' '||lastname)>1;
+  
+  SELECT * FROM NAMES;
+  
+  
+  
+
+
     
